@@ -1,4 +1,5 @@
 import { notFound } from 'next/navigation';
+import '../detailedProduct.css'
 
 async function fetchProduct(id) {
   const res = await fetch(`https://next-ecommerce-api.vercel.app/products/${id}`);
@@ -8,7 +9,6 @@ async function fetchProduct(id) {
   return res.json();
 }
 
-
 export default async function ProductDetailPage({ params }) {
   const { id } = params;
   
@@ -16,14 +16,27 @@ export default async function ProductDetailPage({ params }) {
     const product = await fetchProduct(id);
 
     return (
-      <div>
+      <div className="product-detail">
         <h1>{product.title}</h1>
-        <img src={product.images[0]} alt={product.title} style={{ width: '300px' }} />
+
+        <div className="product-images">
+          {product.images.map((image, index) => (
+            <img
+              key={index}
+              src={image}
+              alt={`${product.title} - image ${index + 1}`}
+              className="product-image"
+            />
+          ))}
+        </div>
+
         <p>Category: {product.category}</p>
         <p>Brand: {product.brand}</p>
         <p>Price: ${product.price}</p>
-        <p>Description: {product.description}</p>
+        <p>In Stock: {product.stock}</p>
+        <p>{product.description}</p>
         <p>Tags: {product.tags.join(', ')}</p>
+        <p>Rating: {product.rating}</p>
       </div>
     );
   } catch (error) {
