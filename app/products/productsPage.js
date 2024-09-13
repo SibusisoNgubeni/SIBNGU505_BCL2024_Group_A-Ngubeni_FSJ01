@@ -37,15 +37,14 @@ export default function ProductsPage() {
 
   return (
     <div>
-      <h1>Products</h1>
       {loading ? (
-        <p>Loading...</p>
+        <p className="loading"></p>
       ) : (
         <>
           <ul className="product-list">
             {products.map((product) => (
               <li key={product.id} className="product-card">
-                <Link href={`/${product.id}`}>
+                <Link href={`/${product.id}`} className="link">
                   
                     <img
                       src={product.images[0]}
@@ -53,10 +52,10 @@ export default function ProductsPage() {
                       className="product-image"
                     />
                     <h2 className="product-title">{product.title}</h2>
-                    <p>Category: {product.category}</p>
-                    <p>Brand: {product.brand}</p>
+                    <p className="product-category">Category: {product.category}</p>
+                    <p className="product-brand">Brand: {product.brand}</p>
                     <p className="product-price">Price: ${product.price}</p>
-                    <p>Tags: {product.tags.join(", ")}</p>
+                    <p className="product-tags">Tags: {product.tags.join(", ")}</p>
                   
                 </Link>
               </li>

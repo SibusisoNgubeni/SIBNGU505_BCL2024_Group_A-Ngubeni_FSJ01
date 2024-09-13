@@ -2,3 +2,26 @@
     width: 400px;
     height: 400px;
 }
+.product-detail {
+    display: flex;
+    justify-content: space-between; /* Space between the two boxes */
+    align-items: flex-start; /* Align them at the top of the container */
+    width: 100%; /* Make the container take full width */
+  }
+  
+  .displayBox1, .displayBox2 {
+    display: flex;
+    height: 500px;
+    width: 500px;
+    margin: 100px;
+    border: 1px solid black;
+    border-radius: 10px;
+
+    padding: 20px;
+  }
+  .displayBox2 {
+    flex-direction: column;
+  }
+  .displayBox1 {
+    flex-direction: column;
+  }
