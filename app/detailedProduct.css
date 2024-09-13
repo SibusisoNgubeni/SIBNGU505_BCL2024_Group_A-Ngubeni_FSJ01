@@ -1,27 +1,71 @@
-.product-image{
-    width: 400px;
-    height: 400px;
-}
+/* detailedProduct.css */
+
 .product-detail {
     display: flex;
-    justify-content: space-between; /* Space between the two boxes */
-    align-items: flex-start; /* Align them at the top of the container */
-    width: 100%; /* Make the container take full width */
-  }
-  
-  .displayBox1, .displayBox2 {
-    display: flex;
-    height: 500px;
-    width: 500px;
-    margin: 100px;
-    border: 1px solid black;
-    border-radius: 10px;
-
+    flex-direction: column;
     padding: 20px;
   }
-  .displayBox2 {
-    flex-direction: column;
-  }
+  
   .displayBox1 {
+    margin-top: 110px;
+    height: 400px;
+    display: flex;
     flex-direction: column;
   }
+  
+  .thumbnail-list {
+    display: flex;
+    
+  }
+  
+  .thumbnail-image {
+    width: 150px;
+    height: auto;
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .displayBox2 {
+    margin-top: 20px;
+  }
+  
+  .reviews {
+    margin-top: 20px;
+  }
+  
+  .review {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+  }
+  
+  .review p {
+    margin: 5px 0;
+  }
+  
+  .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    position: relative;
+  }
+  
+  .close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    font-size: 24px;
+  }
+  
