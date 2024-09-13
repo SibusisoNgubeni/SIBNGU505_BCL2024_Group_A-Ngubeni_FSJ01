@@ -4,10 +4,17 @@ import "../products.css";
 import { useState, useEffect } from "react";
 import PaginationControls from "../../components/pagination";
 
+/**
+ * ProductsPage component that displays a list of products and handles pagination.
+ */
+
 export default function ProductsPage() {
+   /** @type {[Array, Function]} products - The list of products to be displayed. */
   const [products, setProducts] = useState([]);
+    /** @type {[number, Function]} page - The current page number for pagination. */
   const [page, setPage] = useState(1);
   const [loading, setLoading] = useState(false);
+    /** @constant {number} productsPerPage - The number of products displayed per page. */
   const productsPerPage = 20;
 
   useEffect(() => {
@@ -25,9 +32,21 @@ export default function ProductsPage() {
     fetchProducts();
   }, [page]);
 
+  /**
+   * Go to the next page of products.
+   * 
+   * @function nextPage
+   */
+
   const nextPage = () => {
     setPage((prev) => prev + 1);
   };
+
+  /**
+   * Go to the previous page of products.
+   * 
+   * @function prevPage
+   */
 
   const prevPage = () => {
     if (page > 1) {

@@ -3,6 +3,16 @@ import { notFound } from 'next/navigation';
 import '../detailedProduct.css';
 import Navbar from '@/components/navbar';
 
+
+/**
+ * Fetches the product details for a specific product ID.
+ * 
+ * @async
+ * @function fetchProduct
+ * @param {string} id - The ID of the product to fetch.
+ * @returns {Promise<Object>} The product details as a JSON object.
+ * @throws Will throw an error if the product is not found.
+ */
 async function fetchProduct(id) {
   const res = await fetch(`https://next-ecommerce-api.vercel.app/products/${id}`);
   if (!res.ok) {
@@ -10,6 +20,18 @@ async function fetchProduct(id) {
   }
   return res.json();
 }
+
+/**
+ * Renders the detailed product page, including product information and user reviews.
+ * 
+ * @async
+ * @function ProductDetailPage
+ * @param {Object} params - Parameters passed to the page, including the product ID.
+ * @param {Object} params.params - Object containing the route parameters.
+ * @param {string} params.params.id - The product ID to display details for.
+ * @returns {JSX.Element} The rendered detailed product page.
+ * @throws Will call notFound() if the product is not found.
+ */
 
 export default async function ProductDetailPage({ params }) {
   const { id } = params;
@@ -46,7 +68,7 @@ export default async function ProductDetailPage({ params }) {
           <p>Rating: {product.rating}</p>
         </div>
 
-        {/* Display Reviews */}
+        
         <div className='reviews'>
           <h3>Reviews:</h3>
           {product.reviews && product.reviews.length > 0 ? (
